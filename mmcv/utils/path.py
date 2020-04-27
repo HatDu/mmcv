@@ -35,7 +35,8 @@ def mkdir_or_exist(dir_name, mode=0o777):
 def symlink(src, dst, overwrite=True, **kwargs):
     if os.path.lexists(dst) and overwrite:
         os.remove(dst)
-    os.symlink(src, dst, **kwargs)
+#     os.symlink(src, dst, **kwargs)
+    os.system(f'cp {src} {dst}')
 
 
 def scandir(dir_path, suffix=None, recursive=False):
